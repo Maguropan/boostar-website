@@ -5,413 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boostar - Official Website</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *{margin:0;padding:0;box-sizing:border-box;}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #0f0f0f, #1a0033, #000);
-            color: white;
-            overflow-x: hidden;
+        body{
+            font-family:'Arial',sans-serif;
+            background:linear-gradient(45deg,#0f0f0f,#1a0033,#000);
+            color:#fff;
+            overflow-x:hidden;
         }
 
         /* ナビゲーション */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
+        nav{
+            position:fixed;top:0;width:100%;
+            background:rgba(0,0,0,.9);
+            backdrop-filter:blur(10px);
+            z-index:1000;
+            padding:1rem 2rem;
         }
+        .nav-container{
+            display:flex;justify-content:space-between;align-items:center;
+            max-width:1200px;margin:0 auto;
+        }
+        .logo{
+            font-size:2rem;font-weight:bold;
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4,#45b7d1);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+            animation:glow 3s ease-in-out infinite alternate;
+        }
+        .nav-links{display:flex;list-style:none;gap:2rem;}
+        .nav-links a{
+            color:#fff;text-decoration:none;transition:.3s;position:relative;
+        }
+        .nav-links a:hover{color:#4ecdc4;transform:translateY(-2px);}
+        .nav-links a::after{
+            content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4);transition:.3s;
+        }
+        .nav-links a:hover::after{width:100%;}
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* ヒーロー */
+        .hero{height:100vh;display:flex;align-items:center;justify-content:center;
+              position:relative;
+              background:radial-gradient(circle at 50% 50%,rgba(78,205,196,.1) 0%,transparent 70%);
         }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 3s ease-in-out infinite alternate;
+        .hero-content{text-align:center;z-index:2;}
+        .hero h1{
+            font-size:5rem;margin-bottom:1rem;
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4,#45b7d1,#f9ca24);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+            animation:pulse 2s ease-in-out infinite;
         }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        .hero p{font-size:1.5rem;margin-bottom:2rem;opacity:.8;}
+        .cta-button{
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4);border:none;
+            padding:1rem 2rem;color:#fff;font-size:1.2rem;border-radius:50px;
+            cursor:pointer;transition:.3s;text-decoration:none;display:inline-block;
         }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #4ecdc4;
-            transform: translateY(-2px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* ヒーローセクション */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border: none;
-            padding: 1rem 2rem;
-            color: white;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
-        }
+        .cta-button:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(78,205,196,.3);}
 
         /* 浮遊要素 */
-        .floating-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
+        .floating-shapes{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:1;}
+        .shape{position:absolute;border-radius:50%;animation:float 6s ease-in-out infinite;}
+        .shape:nth-child(1){width:100px;height:100px;background:rgba(255,107,107,.1);top:20%;left:10%;animation-delay:0s;}
+        .shape:nth-child(2){width:150px;height:150px;background:rgba(78,205,196,.1);top:60%;right:10%;animation-delay:2s;}
+        .shape:nth-child(3){width:80px;height:80px;background:rgba(69,183,209,.1);bottom:20%;left:20%;animation-delay:4s;}
 
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 107, 107, 0.1);
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            background: rgba(78, 205, 196, 0.1);
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            background: rgba(69, 183, 209, 0.1);
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        /* セクション */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* セクション共通 */
+        .section{padding:5rem 2rem;max-width:1200px;margin:0 auto;}
+        .section h2{
+            font-size:3rem;margin-bottom:2rem;text-align:center;
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
         }
 
         /* メンバーカード */
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .members-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem;}
+        .member-card{
+            background:rgba(255,255,255,.05);padding:2rem;border-radius:20px;
+            backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);
+            transition:.3s;text-align:center;
+        }
+        .member-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(78,205,196,.2);}
+        .member-avatar{
+            width:120px;height:120px;border-radius:50%;
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4);
+            margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;
+            font-size:2rem;color:#fff;
         }
 
-        .member-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
+        /* 楽曲リスト */
+        .songs-list{list-style:none;margin-top:2rem;}
+        .songs-list li{
+            background:rgba(255,255,255,.05);padding:1rem;margin-bottom:1rem;
+            border-radius:10px;border-left:4px solid #4ecdc4;transition:.3s;
         }
-
-        .member-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(78, 205, 196, 0.2);
-        }
-
-        .member-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-        }
-
-        /* 楽曲リスト - サムネイル対応 */
-        .songs-list {
-            list-style: none;
-            margin-top: 2rem;
-            display: grid;
-            gap: 2rem;
-        }
-
-        .song-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border-left: 4px solid #4ecdc4;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .song-item:hover {
-            background: rgba(78, 205, 196, 0.1);
-            transform: translateX(10px);
-        }
-
-        .song-thumbnail {
-            flex-shrink: 0;
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .song-thumbnail img {
-            width: 120px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-        }
-
-        .song-thumbnail:hover img {
-            transform: scale(1.05);
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-
-        .song-thumbnail:hover .play-button {
-            opacity: 1;
-            background: rgba(78, 205, 196, 0.9);
-        }
-
-        .song-info {
-            flex: 1;
-        }
-
-        .song-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #4ecdc4;
-        }
-
-        .song-description {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.5;
-        }
-
-        .song-link {
-            color: #4ecdc4;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .song-link:hover {
-            color: #ff6b6b;
-            text-decoration: underline;
-        }
-
-        /* デフォルトサムネイル */
-        .default-thumbnail {
-            width: 120px;
-            height: 90px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            border-radius: 10px;
-            color: white;
-        }
+        .songs-list li:hover{background:rgba(78,205,196,.1);transform:translateX(10px);}
+        .songs-list img{width:100%;max-width:480px;border-radius:10px;margin-top:10px;}
 
         /* SNSリンク */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+        .social-links{display:flex;justify-content:center;gap:2rem;margin-top:2rem;}
+        .social-link{
+            width:60px;height:60px;border-radius:50%;
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4);
+            display:flex;align-items:center;justify-content:center;
+            color:#fff;text-decoration:none;font-size:1.5rem;transition:.3s;
         }
-
-        .social-link {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: scale(1.2);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
-        }
+        .social-link:hover{transform:scale(1.2);box-shadow:0 10px 30px rgba(78,205,196,.3);}
 
         /* フッター */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 5rem;
-        }
+        footer{background:rgba(0,0,0,.8);padding:2rem;text-align:center;margin-top:5rem;}
 
         /* アニメーション */
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px rgba(78, 205, 196, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(78, 205, 196, 0.8), 0 0 30px rgba(255, 107, 107, 0.5); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
+        @keyframes glow{0%{text-shadow:0 0 10px rgba(78,205,196,.5);}100%{text-shadow:0 0 20px rgba(78,205,196,.8),0 0 30px rgba(255,107,107,.5);}}
+        @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+        @keyframes float{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-20px) rotate(180deg);}}
 
         /* レスポンシブ */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .members-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .song-item {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .song-thumbnail img,
-            .default-thumbnail {
-                width: 200px;
-                height: 150px;
-            }
+        @media(max-width:768px){
+            .hero h1{font-size:3rem;}
+            .nav-links{display:none;}
+            .members-grid{grid-template-columns:1fr;}
         }
     </style>
 </head>
@@ -430,12 +143,10 @@
         </div>
     </nav>
 
-    <!-- ヒーローセクション -->
+    <!-- ヒーロー -->
     <section id="home" class="hero">
         <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
+            <div class="shape"></div><div class="shape"></div><div class="shape"></div>
         </div>
         <div class="hero-content">
             <h1>Boostar</h1>
@@ -444,17 +155,17 @@
         </div>
     </section>
 
-    <!-- About セクション -->
+    <!-- About -->
     <section id="about" class="section">
         <h2>About Boostar</h2>
-        <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; opacity: 0.9;">
+        <p style="text-align:center;font-size:1.2rem;line-height:1.8;opacity:.9;">
             Boostarは、革新的なサウンドと心に響くメッセージで音楽シーンに新たな風を吹き込むバンドです。
             ジャンルの枠を超えた音楽表現で、リスナーの心を高揚させ、日常に特別な瞬間をお届けします。
             私たちの音楽は、夢を追いかけるすべての人へのエールです。
         </p>
     </section>
 
-    <!-- Members セクション -->
+    <!-- Members -->
     <section id="members" class="section">
         <h2>Members</h2>
         <div class="members-grid">
@@ -476,59 +187,39 @@
         </div>
     </section>
 
-    <!-- Music セクション -->
+    <!-- Music -->
     <section id="music" class="section">
         <h2>Music</h2>
-        <div class="songs-list">
-            <div class="song-item">
-                <div class="default-thumbnail">🎵</div>
-                <div class="song-info">
-                    <div class="song-title">Rising Star</div>
-                    <div class="song-description">デビューシングル<br>夢を追いかける全ての人に贈る応援歌</div>
-                </div>
-            </div>
-            
-            <div class="song-item">
-                <div class="song-thumbnail" onclick="window.open('https://youtu.be/TMj4Vf12f1w?si=lKQ0DGCcg4IosyaH', '_blank')" style="cursor: pointer;">
-                    <iframe 
-                        src="https://www.youtube.com/embed/TMj4Vf12f1w" 
-                        width="120" 
-                        height="90" 
-                        frameborder="0" 
-                        style="border-radius: 10px; pointer-events: none;"
-                        allowfullscreen>
-                    </iframe>
-                    <button class="play-button">▶</button>
-                </div>
-                <div class="song-info">
-                    <div class="song-title">LUNCH RUSH RIOT</div>
-                    <div class="song-description">ランチタイムのパワフルなエネルギーチャージ！午後への活力を注入する爆発的な一曲</div>
-                    <a href="https://youtu.be/TMj4Vf12f1w?si=lKQ0DGCcg4IosyaH" target="_blank" class="song-link">🎥 YouTubeで見る</a>
-                </div>
-            </div>
-            
-            <div class="song-item">
-                <div class="default-thumbnail">🌅</div>
-                <div class="song-info">
-                    <div class="song-title">Tomorrow's Light</div>
-                    <div class="song-description">希望に満ちた未来への想いを込めたバラード</div>
-                </div>
-            </div>
-            
-            <div class="song-item">
-                <div class="default-thumbnail">⚡</div>
-                <div class="song-info">
-                    <div class="song-title">Electric Dreams</div>
-                    <div class="song-description">エレクトロとロックが融合した革新的なサウンド</div>
-                </div>
-            </div>
-        </div>
+        <ul class="songs-list">
+            <li>
+                <strong>モーニングブースター</strong><br>
+                <a href="https://www.youtube.com/watch?v=AUliMAgZUqQ" target="_blank">
+                    <img src="https://img.youtube.com/vi/AUliMAgZUqQ/hqdefault.jpg" alt="モーニングブースター">
+                </a><br>
+                <small>朝をブーストする爽快チューン！一日のスタートを加速させる元気な一曲</small>
+            </li>
+            <li>
+                <strong>LUNCH RUSH RIOT</strong><br>
+                <a href="https://youtu.be/TMj4Vf12f1w?si=lKQ0DGCcg4IosyaH" target="_blank">
+                    <img src="https://img.youtube.com/vi/TMj4Vf12f1w/hqdefault.jpg" alt="LUNCH RUSH RIOT">
+                </a><br>
+                <small>ランチタイムのパワフルなエネルギーチャージ！午後への活力を注入する爆発的な一曲</small>
+            </li>
+            <li>
+                <strong>Tomorrow's Light</strong><br>
+                <small>希望に満ちた未来への想いを込めたバラード</small>
+            </li>
+            <li>
+                <strong>Electric Dreams</strong><br>
+                <small>エレクトロとロックが融合した革新的なサウンド</small>
+            </li>
+        </ul>
     </section>
 
-    <!-- Contact セクション -->
+    <!-- Contact -->
     <section id="contact" class="section">
         <h2>Contact</h2>
-        <p style="text-align: center; margin-bottom: 2rem;">
+        <p style="text-align:center;margin-bottom:2rem;">
             ライブ出演やコラボレーションのお問い合わせはこちら
         </p>
         <div class="social-links">
@@ -546,97 +237,47 @@
     </footer>
 
     <script>
-        // スムーススクロール
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        /* スムーススクロール */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+            anchor.addEventListener('click',e=>{
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const target=document.querySelector(anchor.getAttribute('href'));
+                if(target){
+                    target.scrollIntoView({behavior:'smooth',block:'start'});
                 }
             });
         });
 
-        // YouTube動画IDを抽出する関数
-        function extractVideoId(url) {
-            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-            const match = url.match(regExp);
-            return (match && match[2].length === 11) ? match[2] : null;
+        /* 背景パーティクル */
+        function createParticle(){
+            const p=document.createElement('div');
+            p.style.position='fixed';
+            p.style.width='4px';p.style.height='4px';
+            p.style.background='rgba(78,205,196,.6)';
+            p.style.borderRadius='50%';
+            p.style.pointerEvents='none';
+            p.style.left=Math.random()*window.innerWidth+'px';
+            p.style.top=window.innerHeight+'px';
+            p.style.zIndex='1';
+            document.body.appendChild(p);
+            const anim=p.animate([
+                {transform:'translateY(0px)',opacity:1},
+                {transform:`translateY(-${window.innerHeight+100}px)`,opacity:0}
+            ],{duration:Math.random()*3000+2000,easing:'linear'});
+            anim.onfinish=()=>p.remove();
         }
+        setInterval(createParticle,300);
 
-        // YouTubeサムネイルURLを生成する関数
-        function getYoutubeThumbnail(videoId, quality = 'maxresdefault') {
-            return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
-        }
-
-        // 動的な背景効果
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.position = 'fixed';
-            particle.style.width = '4px';
-            particle.style.height = '4px';
-            particle.style.background = 'rgba(78, 205, 196, 0.6)';
-            particle.style.borderRadius = '50%';
-            particle.style.pointerEvents = 'none';
-            particle.style.left = Math.random() * window.innerWidth + 'px';
-            particle.style.top = window.innerHeight + 'px';
-            particle.style.zIndex = '1';
-            
-            document.body.appendChild(particle);
-            
-            const animation = particle.animate([
-                { transform: 'translateY(0px)', opacity: 1 },
-                { transform: `translateY(-${window.innerHeight + 100}px)`, opacity: 0 }
-            ], {
-                duration: Math.random() * 3000 + 2000,
-                easing: 'linear'
-            });
-            
-            animation.onfinish = () => particle.remove();
-        }
-
-        // パーティクル生成
-        setInterval(createParticle, 300);
-
-        // ナビゲーションのスクロール効果
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(0, 0, 0, 0.95)';
-            } else {
-                nav.style.background = 'rgba(0, 0, 0, 0.9)';
-            }
+        /* ナビ背景濃淡 */
+        window.addEventListener('scroll',()=>{
+            const nav=document.querySelector('nav');
+            nav.style.background=window.scrollY>50?'rgba(0,0,0,.95)':'rgba(0,0,0,.9)';
         });
 
-        // カードのホバー効果強化
-        document.querySelectorAll('.member-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(78, 205, 196, 0.1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.05)';
-            });
-        });
-
-        // 楽曲アイテムのホバー効果
-        document.querySelectorAll('.song-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                const thumbnail = this.querySelector('.song-thumbnail');
-                if (thumbnail) {
-                    thumbnail.style.transform = 'scale(1.02)';
-                }
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                const thumbnail = this.querySelector('.song-thumbnail');
-                if (thumbnail) {
-                    thumbnail.style.transform = 'scale(1)';
-                }
-            });
+        /* メンバーカード hover */
+        document.querySelectorAll('.member-card').forEach(card=>{
+            card.addEventListener('mouseenter',()=>card.style.background='rgba(78,205,196,.1)');
+            card.addEventListener('mouseleave',()=>card.style.background='rgba(255,255,255,.05)');
         });
     </script>
 </body>
