@@ -56,13 +56,111 @@ nav{position:fixed;top:0;width:100%;padding:1rem 2rem;
 #contact{background:#210040;}
 
 /* ───────────────── Members ───────────────── */
-.members-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem;}
+.members-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:2rem;margin-top:3rem;max-width:1000px;margin-left:auto;margin-right:auto;}
 .member-card{background:rgba(255,255,255,.05);padding:2rem;border-radius:20px;
              border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);text-align:center;transition:.3s;}
 .member-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(78,205,196,.2);}
-.member-avatar{width:120px;height:120px;border-radius:50%;
-               background:linear-gradient(45deg,#ff6b6b,#4ecdc4);
-               margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;}
+.member-avatar{width:160px;height:160px;border-radius:50%;
+               background:linear-gradient(135deg,#2d2d2d,#1a1a1a);
+               margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;
+               overflow:visible;position:relative;}
+.member-role{color:#4ecdc4;font-size:0.9rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.5rem;}
+
+/* ───────────────── Character Avatars ───────────────── */
+/* Red Cow - BULL */
+.red-cow{position:relative;transform:scale(0.7);}
+.red-cow .head{width:100px;height:120px;background:linear-gradient(135deg,#c44e3a 0%,#d67059 100%);
+               border-radius:50% 50% 45% 45%;position:relative;}
+.red-cow .mohawk{position:absolute;width:50px;height:60px;background:#dc3545;top:-30px;left:25px;
+                 clip-path:polygon(50% 0%,0% 100%,25% 80%,50% 100%,75% 80%,100% 100%);}
+.red-cow .horn{position:absolute;width:12px;height:25px;background:linear-gradient(135deg,#f5f5dc,#e6d7b8);
+               border-radius:6px 6px 0 0;top:-8px;}
+.red-cow .horn.left{left:8px;}
+.red-cow .horn.right{right:8px;}
+.red-cow .ear{position:absolute;width:25px;height:35px;background:inherit;border-radius:50%;
+              top:35px;filter:brightness(0.9);}
+.red-cow .ear.left{left:-8px;transform:rotate(-15deg);}
+.red-cow .ear.right{right:-8px;transform:rotate(15deg);}
+.red-cow .eye{position:absolute;width:15px;height:15px;background:white;border-radius:50%;top:50px;}
+.red-cow .eye.left{left:20px;}
+.red-cow .eye.right{right:20px;}
+.red-cow .pupil{position:absolute;width:8px;height:8px;background:#1a1a1a;border-radius:50%;top:3px;left:3px;}
+.red-cow .nose{position:absolute;width:20px;height:15px;background:#2d2d2d;border-radius:50%;bottom:25px;left:40px;}
+.red-cow .jacket{width:85px;height:80px;background:#1a1a1a;margin:-8px auto 0;border-radius:8px 8px 0 0;
+                 position:relative;border:2px solid #333;}
+
+/* Holstein - SPOTS */
+.holstein{position:relative;transform:scale(0.7);}
+.holstein .head{width:100px;height:120px;background:#f5f5f5;border-radius:50% 50% 45% 45%;position:relative;}
+.holstein .spot{position:absolute;background:#1a1a1a;border-radius:50%;}
+.holstein .spot1{width:30px;height:25px;top:15px;left:8px;}
+.holstein .spot2{width:25px;height:30px;top:20px;right:12px;}
+.holstein .spot3{width:20px;height:15px;top:60px;left:15px;}
+.holstein .glasses{position:absolute;width:65px;height:25px;top:45px;left:17px;}
+.holstein .lens{position:absolute;width:22px;height:22px;border:2px solid #2d2d2d;border-radius:50%;
+                background:rgba(135,206,250,.2);}
+.holstein .lens.left{left:0;}
+.holstein .lens.right{right:0;}
+.holstein .bridge{position:absolute;width:15px;height:2px;background:#2d2d2d;top:10px;left:25px;}
+.holstein .ear{position:absolute;width:25px;height:35px;background:inherit;border-radius:50%;
+               top:35px;filter:brightness(0.9);}
+.holstein .ear.left{left:-8px;transform:rotate(-15deg);}
+.holstein .ear.right{right:-8px;transform:rotate(15deg);}
+.holstein .eye{position:absolute;width:15px;height:15px;background:white;border-radius:50%;top:50px;}
+.holstein .eye.left{left:20px;}
+.holstein .eye.right{right:20px;}
+.holstein .pupil{position:absolute;width:8px;height:8px;background:#1a1a1a;border-radius:50%;top:3px;left:3px;}
+.holstein .nose{position:absolute;width:20px;height:15px;background:#2d2d2d;border-radius:50%;bottom:25px;left:40px;}
+.holstein .cardigan{width:90px;height:80px;background:#8b7355;margin:-8px auto 0;border-radius:8px 8px 0 0;position:relative;}
+.holstein .button{position:absolute;width:6px;height:6px;background:#5a4a3a;border-radius:50%;left:50%;transform:translateX(-50%);}
+.holstein .button1{top:20px;}
+.holstein .button2{top:35px;}
+
+/* Black Sheep - SHADOW */
+.black-sheep{position:relative;transform:scale(0.7);}
+.black-sheep .head{width:100px;height:110px;background:#1a1a1a;border-radius:50%;position:relative;}
+.black-sheep .wool{position:absolute;width:20px;height:20px;background:#0a0a0a;border-radius:50%;}
+.black-sheep .wool1{top:-4px;left:8px;}
+.black-sheep .wool2{top:-6px;left:33px;}
+.black-sheep .wool3{top:-4px;right:8px;}
+.black-sheep .wool4{top:12px;left:-4px;}
+.black-sheep .wool5{top:12px;right:-4px;}
+.black-sheep .ear{position:absolute;width:25px;height:35px;background:inherit;border-radius:50%;
+                  top:30px;filter:brightness(0.9);}
+.black-sheep .ear.left{left:-8px;transform:rotate(-15deg);}
+.black-sheep .ear.right{right:-8px;transform:rotate(15deg);}
+.black-sheep .eye{position:absolute;width:15px;height:15px;background:white;border-radius:50%;top:45px;}
+.black-sheep .eye.left{left:20px;}
+.black-sheep .eye.right{right:20px;}
+.black-sheep .pupil{position:absolute;width:8px;height:8px;background:#1a1a1a;border-radius:50%;top:3px;left:3px;}
+.black-sheep .nose{position:absolute;width:20px;height:15px;background:#2d2d2d;border-radius:50%;bottom:25px;left:40px;}
+.black-sheep .hoodie{width:92px;height:85px;background:#2d2d2d;margin:-8px auto 0;border-radius:12px 12px 0 0;position:relative;}
+.black-sheep .hood{position:absolute;width:80px;height:45px;background:#3a3a3a;border-radius:40px 40px 0 0;
+                   top:-35px;left:6px;}
+
+/* Female Tiger - TIGER */
+.female-tiger{position:relative;transform:scale(0.7);}
+.female-tiger .head{width:100px;height:120px;background:linear-gradient(135deg,#ff9944,#ffbb66);
+                    border-radius:50% 50% 45% 45%;position:relative;}
+.female-tiger .long-hair{position:absolute;width:65px;height:95px;background:#ff8833;top:-8px;left:17px;
+                         border-radius:32px;z-index:-1;}
+.female-tiger .stripe{position:absolute;background:#2d2d2d;border-radius:8px;}
+.female-tiger .stripe1{width:25px;height:3px;top:30px;left:12px;transform:rotate(-15deg);}
+.female-tiger .stripe2{width:25px;height:3px;top:30px;right:12px;transform:rotate(15deg);}
+.female-tiger .stripe3{width:20px;height:3px;top:42px;left:8px;transform:rotate(-10deg);}
+.female-tiger .stripe4{width:20px;height:3px;top:42px;right:8px;transform:rotate(10deg);}
+.female-tiger .ear{position:absolute;width:25px;height:35px;background:inherit;border-radius:50%;
+                   top:35px;filter:brightness(0.9);}
+.female-tiger .ear.left{left:-8px;transform:rotate(-15deg);}
+.female-tiger .ear.right{right:-8px;transform:rotate(15deg);}
+.female-tiger .eye{position:absolute;width:15px;height:15px;background:white;border-radius:50%;top:50px;}
+.female-tiger .eye.left{left:20px;}
+.female-tiger .eye.right{right:20px;}
+.female-tiger .pupil{position:absolute;width:8px;height:8px;background:#1a1a1a;border-radius:50%;top:3px;left:3px;}
+.female-tiger .nose{position:absolute;width:20px;height:15px;background:#2d2d2d;border-radius:50%;bottom:25px;left:40px;}
+.female-tiger .leather-jacket{width:88px;height:82px;background:#1a1a1a;margin:-8px auto 0;border-radius:8px 8px 0 0;
+                              position:relative;border:2px solid #444;}
+.female-tiger .zipper{position:absolute;width:2px;height:55px;background:#888;left:50%;top:15px;transform:translateX(-50%);}
 
 /* ───────────────── ② 楽曲カード 横並び 16:9 ───────────────── */
 .songs-list{list-style:none;margin-top:2rem;}
@@ -107,6 +205,10 @@ footer{background:#000;padding:2rem;text-align:center;margin-top:5rem;}
 @media(max-width:768px){
   .hero h1{font-size:3rem;}
   .nav-links{display:none;} /* ハンバーガー未実装の場合は非表示 */
+  .members-grid{grid-template-columns:1fr !important;}
+}
+@media(min-width:769px){
+  .members-grid{grid-template-columns:repeat(2,1fr) !important;}
 }
 </style>
 </head>
@@ -141,9 +243,11 @@ footer{background:#000;padding:2rem;text-align:center;margin-top:5rem;}
 <!-- About -->
 <section id="about" class="section">
  <h2>About Boostar</h2>
- <p style="text-align:center;font-size:1.2rem;line-height:1.8;opacity:.9;">
-   Boostarは、革新的なサウンドと心に響くメッセージで音楽シーンに新たな風を吹き込むバンドです。
-   ジャンルの枠を超えた音楽表現で、リスナーの心を高揚させ、日常に特別な瞬間をお届けします。
+ <p style="text-align:center;font-size:1.2rem;line-height:1.8;opacity:.9;max-width:800px;margin:0 auto;">
+   Boostarは、革新的なサウンドと心に響くメッセージで<br>
+   音楽シーンに新たな風を吹き込むバンドです。<br>
+   ジャンルの枠を超えた音楽表現で、リスナーの心を高揚させ、<br>
+   日常に特別な瞬間をお届けします。<br>
    私たちの音楽は、夢を追いかけるすべての人へのエールです。
  </p>
 </section>
@@ -152,20 +256,108 @@ footer{background:#000;padding:2rem;text-align:center;margin-top:5rem;}
 <section id="members" class="section">
  <h2>Members</h2>
  <div class="members-grid">
+   <!-- BULL - Vocals -->
    <div class="member-card">
-     <div class="member-avatar">🎤</div>
-     <h3>ボーカル</h3>
-     <p>力強くも繊細な歌声で、聴く人の心を揺さぶる。感情豊かな表現力が魅力。</p>
+     <div class="member-avatar">
+       <div class="red-cow">
+         <div class="head">
+           <div class="mohawk"></div>
+           <div class="horn left"></div>
+           <div class="horn right"></div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="jacket"></div>
+       </div>
+     </div>
+     <h3>BULL</h3>
+     <p class="member-role">Vocals</p>
+     <p>情熱的な赤い牛。<br>パワフルなボーカルと熱いパフォーマンスで<br>バンドを牽引するフロントマン。</p>
    </div>
+   
+   <!-- SPOTS - Guitar -->
    <div class="member-card">
-     <div class="member-avatar">🎸</div>
-     <h3>ギター</h3>
-     <p>革新的なサウンドメイキングとテクニカルなプレイで、バンドの音楽性を牽引。</p>
+     <div class="member-avatar">
+       <div class="holstein">
+         <div class="head">
+           <div class="spot spot1"></div>
+           <div class="spot spot2"></div>
+           <div class="spot spot3"></div>
+           <div class="glasses">
+             <div class="lens left"></div>
+             <div class="bridge"></div>
+             <div class="lens right"></div>
+           </div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="cardigan">
+           <div class="button button1"></div>
+           <div class="button button2"></div>
+         </div>
+       </div>
+     </div>
+     <h3>SPOTS</h3>
+     <p class="member-role">Guitar</p>
+     <p>知的なホルスタイン。<br>メガネがトレードマークの音楽理論派。<br>革新的なギターサウンドを生み出す。</p>
    </div>
+   
+   <!-- SHADOW - Bass -->
    <div class="member-card">
-     <div class="member-avatar">🥁</div>
-     <h3>ドラム</h3>
-     <p>圧倒的なグルーヴ感とパワフルなビートで、楽曲にエネルギーを注入。</p>
+     <div class="member-avatar">
+       <div class="black-sheep">
+         <div class="head">
+           <div class="wool wool1"></div>
+           <div class="wool wool2"></div>
+           <div class="wool wool3"></div>
+           <div class="wool wool4"></div>
+           <div class="wool wool5"></div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="hoodie">
+           <div class="hood"></div>
+         </div>
+       </div>
+     </div>
+     <h3>SHADOW</h3>
+     <p class="member-role">Bass</p>
+     <p>ミステリアスな黒羊。<br>重低音を操り、バンドの土台を支える影の実力者。<br>クールな佇まいが魅力。</p>
+   </div>
+   
+   <!-- TIGER - Drums -->
+   <div class="member-card">
+     <div class="member-avatar">
+       <div class="female-tiger">
+         <div class="head">
+           <div class="long-hair"></div>
+           <div class="stripe stripe1"></div>
+           <div class="stripe stripe2"></div>
+           <div class="stripe stripe3"></div>
+           <div class="stripe stripe4"></div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="leather-jacket">
+           <div class="zipper"></div>
+         </div>
+       </div>
+     </div>
+     <h3>TIGER</h3>
+     <p class="member-role">Drums</p>
+     <p>野性的な雌虎。<br>圧倒的なテクニックと破壊力でリズムを刻む。<br>レザージャケットがトレードマーク。</p>
    </div>
  </div>
 </section>
