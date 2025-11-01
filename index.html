@@ -210,6 +210,51 @@ footer{background:#000;padding:2rem;text-align:center;margin-top:5rem;}
 @media(min-width:769px){
   .members-grid{grid-template-columns:repeat(2,1fr) !important;}
 }
+
+/* ───────────────── Hero Band Members ───────────────── */
+.hero-band-members {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  margin-top: 3rem;
+}
+
+.hero-member {
+  position: relative;
+  transform-origin: bottom center;
+}
+
+.hero-member.shadow {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.hero-member.bull {
+  transform: scale(1.2);
+  z-index: 4;
+}
+
+.hero-member.spots {
+  transform: scale(1.2);
+  z-index: 3;
+}
+
+.hero-member.tiger {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+@media(max-width:768px){
+  .hero-band-members {
+    gap: 15px;
+    margin-top: 2rem;
+  }
+  .hero-member.shadow, .hero-member.tiger, .hero-member.bull, .hero-member.spots {
+    transform: scale(0.8);
+  }
+}
+
 </style>
 </head>
 
@@ -233,10 +278,98 @@ footer{background:#000;padding:2rem;text-align:center;margin-top:5rem;}
  <div class="floating-shapes">
    <div class="shape"></div><div class="shape"></div><div class="shape"></div>
  </div>
+
  <div class="hero-content">
    <h1>Boostar</h1>
    <p>音楽で世界を変える新星バンド</p>
    <a href="#music" class="cta-button">今すぐ聴く</a>
+   
+   <!-- Band Members Display -->
+   <div class="hero-band-members">
+     <!-- SHADOW - Bass -->
+     <div class="hero-member shadow">
+       <div class="black-sheep">
+         <div class="head">
+           <div class="wool wool1"></div>
+           <div class="wool wool2"></div>
+           <div class="wool wool3"></div>
+           <div class="wool wool4"></div>
+           <div class="wool wool5"></div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="hoodie">
+           <div class="hood"></div>
+         </div>
+       </div>
+     </div>
+     
+     <!-- BULL - Vocals -->
+     <div class="hero-member bull">
+       <div class="red-cow">
+         <div class="head">
+           <div class="mohawk"></div>
+           <div class="horn left"></div>
+           <div class="horn right"></div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="jacket"></div>
+       </div>
+     </div>
+     
+     <!-- SPOTS - Guitar -->
+     <div class="hero-member spots">
+       <div class="holstein">
+         <div class="head">
+           <div class="spot spot1"></div>
+           <div class="spot spot2"></div>
+           <div class="spot spot3"></div>
+           <div class="glasses">
+             <div class="lens left"></div>
+             <div class="bridge"></div>
+             <div class="lens right"></div>
+           </div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="cardigan">
+           <div class="button button1"></div>
+           <div class="button button2"></div>
+         </div>
+       </div>
+     </div>
+     
+     <!-- TIGER - Drums -->
+     <div class="hero-member tiger">
+       <div class="female-tiger">
+         <div class="head">
+           <div class="long-hair"></div>
+           <div class="stripe stripe1"></div>
+           <div class="stripe stripe2"></div>
+           <div class="stripe stripe3"></div>
+           <div class="stripe stripe4"></div>
+           <div class="ear left"></div>
+           <div class="ear right"></div>
+           <div class="eye left"><div class="pupil"></div></div>
+           <div class="eye right"><div class="pupil"></div></div>
+           <div class="nose"></div>
+         </div>
+         <div class="leather-jacket">
+           <div class="zipper"></div>
+         </div>
+       </div>
+     </div>
+   </div>
  </div>
 </section>
 
